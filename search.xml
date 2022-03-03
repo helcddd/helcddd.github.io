@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>第一篇博客文章</title>
+      <link href="/2022/03/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
+      <url>/2022/03/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<p>我的第一篇博客文章，不写的话，网站根本打不开，因为我把helloworld.md给删了，所以必须写一篇。<br>那就随便说几句吧。<br>为了搭建这个博客，我用了2天的时间，其实之前就已经搭建好了，但我想换个主题，所以就重新出发了。<br>搭建过程中，主要是谷歌、百度、b站到处找教程，其中试了很多主题，花了2天的原因也是因为在主题的问题上太纠结了，还好最后选好了这个黑暗风格的主题，感觉神秘感十足。<br>而且我依稀有印象，之前我在哪里看某大佬的博客时，有相似的主题。所以我一眼相中了它。<br>主题的github地址：<a href="https://github.com/probberechts/hexo-theme-cactus">https://github.com/probberechts/hexo-theme-cactus</a><br>给有需要的看。<br>简介大方，适合自己的才是最好的。<br>我后面还要在完善下这个主题配置，主要是跟着官方文档来配置。<br>那就，到这，结束吧。<br>以后就在这个博客，一天一天地记录下我的成长过程吧。希望自己不再迷茫。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
