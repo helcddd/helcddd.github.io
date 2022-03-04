@@ -14,7 +14,7 @@
 <meta property="og:description" content="信息收集总结主要是看了网上的大佬的相关文章，跟着手打了一遍，加深了理解。但是还是发现不够简洁，所以我想着怎样才能让自己以后需要时一目了然呢。   于是，自己也要来个总结。   如果是要看完整的信息收集的文章，比如它的各种思路等等之类的，可以去网上找相关的文章。这里推荐一个网站，就是我博客的项目列表下的那个“干货集中营”，里面集合了众多安全方面的文章，我被人推荐这个网站后，一直就在上面看安全文章，感">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-04T03:24:42.000Z">
-<meta property="article:modified_time" content="2022-03-04T05:01:44.722Z">
+<meta property="article:modified_time" content="2022-03-04T05:09:23.752Z">
 <meta property="article:author" content="Helc">
 <meta property="article:tag" content="信息收集">
 <meta property="article:tag" content="总结">
@@ -109,7 +109,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">信息收集总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93"><span class="toc-number">2.</span> <span class="toc-text">具体</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#whois%E4%BF%A1%E6%81%AF"><span class="toc-number">2.0.1.</span> <span class="toc-text">whois信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.0.2.</span> <span class="toc-text">dns服务器查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-number">2.0.3.</span> <span class="toc-text">子域名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%9C%9F%E5%AE%9Eip"><span class="toc-number">2.0.4.</span> <span class="toc-text">目标真实ip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">2.0.5.</span> <span class="toc-text">反向地址解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%81%E7%AB%99c%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.0.6.</span> <span class="toc-text">旁站c段查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">2.0.7.</span> <span class="toc-text">服务指纹识别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1%E6%94%B6%E9%9B%86"><span class="toc-number">2.0.8.</span> <span class="toc-text">邮箱收集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-number">2.0.9.</span> <span class="toc-text">敏感目录文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="toc-number">2.0.10.</span> <span class="toc-text">端口信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#waf%E6%A3%80%E6%B5%8B"><span class="toc-number">2.0.11.</span> <span class="toc-text">waf检测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-number">2.0.12.</span> <span class="toc-text">后台管理地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84"><span class="toc-number">2.0.13.</span> <span class="toc-text">获取物理路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">2.0.14.</span> <span class="toc-text">需要注意的地方</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BE%E5%B7%A5%E5%BA%93"><span class="toc-number">2.0.15.</span> <span class="toc-text">社工库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">2.0.16.</span> <span class="toc-text">漏洞扫描</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">信息收集总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93"><span class="toc-number">2.</span> <span class="toc-text">具体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whois%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text">whois信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.</span> <span class="toc-text">dns服务器查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-number">5.</span> <span class="toc-text">子域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%9C%9F%E5%AE%9Eip"><span class="toc-number">6.</span> <span class="toc-text">目标真实ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">7.</span> <span class="toc-text">反向地址解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%81%E7%AB%99c%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">8.</span> <span class="toc-text">旁站c段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">服务指纹识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1%E6%94%B6%E9%9B%86"><span class="toc-number">10.</span> <span class="toc-text">邮箱收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">敏感目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="toc-number">12.</span> <span class="toc-text">端口信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#waf%E6%A3%80%E6%B5%8B"><span class="toc-number">13.</span> <span class="toc-text">waf检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-number">14.</span> <span class="toc-text">后台管理地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84"><span class="toc-number">15.</span> <span class="toc-text">获取物理路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">16.</span> <span class="toc-text">需要注意的地方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E5%B7%A5%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">社工库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">18.</span> <span class="toc-text">漏洞扫描</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -165,46 +165,46 @@
 <p>我这次的总结也是根据里面的一篇文章来的，只是自己二次加工了，主要是要更简洁些。  </p>
 <p>好，话不多说，现在就开始吧！  </p>
 <h3 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h3><p>主要是整理一些知识下对应的工具和重点。  </p>
-<h5 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h5><p>​    站长之家查询：<a target="_blank" rel="noopener" href="https://whois.chinaz.com/">https://whois.chinaz.com/</a></p>
-<h5 id="dns服务器查询"><a href="#dns服务器查询" class="headerlink" title="dns服务器查询"></a>dns服务器查询</h5><p>​    在查whois信息时会有dns服务器的信息</p>
-<h5 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h5><p>​    subDomainsBrute：<a target="_blank" rel="noopener" href="https://github.com/Pluto-123/Bypass_cdn">https://github.com/Pluto-123/Bypass_cdn</a></p>
-<p>​    使用的是这个兄弟魔改的subDomainsBrute，感觉挺好用的。</p>
-<p>​    使用命令：python subDomainsBrute.py 域名</p>
-<p>​    会人性化地在根目录下生成对应的域名.txt，一目了然。</p>
-<h5 id="目标真实ip"><a href="#目标真实ip" class="headerlink" title="目标真实ip"></a>目标真实ip</h5><p>​    就是绕cdn的方法 。  </p>
-<p>​    有很多方法，例如国外ping之类的，可以去干货集中营里面看文章找。  </p>
-<p>​    我这里使用的是个脚本。  </p>
-<p>​    github地址：<a target="_blank" rel="noopener" href="https://github.com/Pluto-123/Bypass_cdn">https://github.com/Pluto-123/Bypass_cdn</a></p>
-<p>​    使用的还是这个，一步到位了，把子域名和绕cdn。  </p>
-<p>​    使用命令：python main.py 网址</p>
-<p>​    （注意：这个网址要以http或https开头的）</p>
-<p>​    使用步骤：可以先爆破子域名，再绕cdn，这样更容易找到真实ip。</p>
-<p>​    所以，这个Bypass_cdn结合了这两步，使用起来很方便。</p>
-<h5 id="反向地址解析"><a href="#反向地址解析" class="headerlink" title="反向地址解析"></a>反向地址解析</h5><p>​    ip反查域名：<a target="_blank" rel="noopener" href="https://dns.aizhan.com/">https://dns.aizhan.com/</a></p>
-<h5 id="旁站c段查询"><a href="#旁站c段查询" class="headerlink" title="旁站c段查询"></a>旁站c段查询</h5><p>​    旁站：<a target="_blank" rel="noopener" href="https://www.webscan.cc/">https://www.webscan.cc/</a></p>
-<p>​    c段：御剑或nmap</p>
-<p>​    nmap自己下。</p>
-<p>​    御剑下载地址：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/tools.html">https://www.sqlsec.com/tools.html</a></p>
-<p>​    国光大佬这里有很多好工具，查c段的话搜索御剑，找到“御剑TCP端口扫描”，下这个。</p>
-<h5 id="服务指纹识别"><a href="#服务指纹识别" class="headerlink" title="服务指纹识别"></a>服务指纹识别</h5><p>​    主机系统：nmap -O</p>
-<p>​    cms：</p>
-<p>​        <a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></p>
-<p>​        <a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn/</a></p>
-<p>​    服务器和中间件：安装谷歌插件Wappalyzer</p>
-<h5 id="邮箱收集"><a href="#邮箱收集" class="headerlink" title="邮箱收集"></a>邮箱收集</h5><p>​    kali下的theharester</p>
-<h5 id="敏感目录文件"><a href="#敏感目录文件" class="headerlink" title="敏感目录文件"></a>敏感目录文件</h5><p>​    御剑后台扫描</p>
-<p>​    还是去国光大佬那下：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/tools.html">https://www.sqlsec.com/tools.html</a></p>
-<h5 id="端口信息"><a href="#端口信息" class="headerlink" title="端口信息"></a>端口信息</h5><p>​    nmap</p>
-<p>​    御剑</p>
-<h5 id="waf检测"><a href="#waf检测" class="headerlink" title="waf检测"></a>waf检测</h5><p>​    github上的那个wafw00f：<a target="_blank" rel="noopener" href="https://github.com/EnableSecurity/wafw00f">https://github.com/EnableSecurity/wafw00f</a></p>
-<h5 id="后台管理地址"><a href="#后台管理地址" class="headerlink" title="后台管理地址"></a>后台管理地址</h5><p>​    谷歌黑客语法</p>
-<h5 id="获取物理路径"><a href="#获取物理路径" class="headerlink" title="获取物理路径"></a>获取物理路径</h5><p>​    探针文件</p>
-<h5 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h5><p>​    注册登录框</p>
-<p>​    文件下载</p>
-<h5 id="社工库"><a href="#社工库" class="headerlink" title="社工库"></a>社工库</h5><p>​    findmima.com</p>
-<h5 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h5><p>​    awvs</p>
-<p>​    xray</p>
-<p>​    github开源工具集合：<a target="_blank" rel="noopener" href="https://github.com/We5ter/Scanners-Box/">https://github.com/We5ter/Scanners-Box/</a></p>
+<h3 id="whois信息"><a href="#whois信息" class="headerlink" title="whois信息"></a>whois信息</h3><p>站长之家查询：<a target="_blank" rel="noopener" href="https://whois.chinaz.com/">https://whois.chinaz.com/</a></p>
+<h3 id="dns服务器查询"><a href="#dns服务器查询" class="headerlink" title="dns服务器查询"></a>dns服务器查询</h3><p>在查whois信息时会有dns服务器的信息</p>
+<h3 id="子域名"><a href="#子域名" class="headerlink" title="子域名"></a>子域名</h3><p>subDomainsBrute：<a target="_blank" rel="noopener" href="https://github.com/Pluto-123/Bypass_cdn">https://github.com/Pluto-123/Bypass_cdn</a></p>
+<p>使用的是这个兄弟魔改的subDomainsBrute，感觉挺好用的。</p>
+<p>使用命令：python subDomainsBrute.py 域名</p>
+<p>会人性化地在根目录下生成对应的域名.txt，一目了然。</p>
+<h3 id="目标真实ip"><a href="#目标真实ip" class="headerlink" title="目标真实ip"></a>目标真实ip</h3><p>就是绕cdn的方法 。  </p>
+<p>有很多方法，例如国外ping之类的，可以去干货集中营里面看文章找。  </p>
+<p>我这里使用的是个脚本。  </p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/Pluto-123/Bypass_cdn">https://github.com/Pluto-123/Bypass_cdn</a></p>
+<p>使用的还是这个，一步到位了，把子域名和绕cdn。  </p>
+<p>使用命令：python main.py 网址</p>
+<p>（注意：这个网址要以http或https开头的）</p>
+<p>使用步骤：可以先爆破子域名，再绕cdn，这样更容易找到真实ip。</p>
+<p>所以，这个Bypass_cdn结合了这两步，使用起来很方便。</p>
+<h3 id="反向地址解析"><a href="#反向地址解析" class="headerlink" title="反向地址解析"></a>反向地址解析</h3><p>ip反查域名：<a target="_blank" rel="noopener" href="https://dns.aizhan.com/">https://dns.aizhan.com/</a></p>
+<h3 id="旁站c段查询"><a href="#旁站c段查询" class="headerlink" title="旁站c段查询"></a>旁站c段查询</h3><p>旁站：<a target="_blank" rel="noopener" href="https://www.webscan.cc/">https://www.webscan.cc/</a></p>
+<p>c段：御剑或nmap</p>
+<p>nmap自己下。</p>
+<p>御剑下载地址：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/tools.html">https://www.sqlsec.com/tools.html</a></p>
+<p>国光大佬这里有很多好工具，查c段的话搜索御剑，找到“御剑TCP端口扫描”，下这个。</p>
+<h3 id="服务指纹识别"><a href="#服务指纹识别" class="headerlink" title="服务指纹识别"></a>服务指纹识别</h3><p>主机系统：nmap -O</p>
+<p>cms：</p>
+<p>​    <a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></p>
+<p>​    <a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn/</a></p>
+<p>服务器和中间件：安装谷歌插件Wappalyzer</p>
+<h3 id="邮箱收集"><a href="#邮箱收集" class="headerlink" title="邮箱收集"></a>邮箱收集</h3><p>kali下的theharester</p>
+<h3 id="敏感目录文件"><a href="#敏感目录文件" class="headerlink" title="敏感目录文件"></a>敏感目录文件</h3><p>御剑后台扫描</p>
+<p>还是去国光大佬那下：<a target="_blank" rel="noopener" href="https://www.sqlsec.com/tools.html">https://www.sqlsec.com/tools.html</a></p>
+<h3 id="端口信息"><a href="#端口信息" class="headerlink" title="端口信息"></a>端口信息</h3><p>nmap</p>
+<p>御剑</p>
+<h3 id="waf检测"><a href="#waf检测" class="headerlink" title="waf检测"></a>waf检测</h3><p>github上的那个wafw00f：<a target="_blank" rel="noopener" href="https://github.com/EnableSecurity/wafw00f">https://github.com/EnableSecurity/wafw00f</a></p>
+<h3 id="后台管理地址"><a href="#后台管理地址" class="headerlink" title="后台管理地址"></a>后台管理地址</h3><p>谷歌黑客语法</p>
+<h3 id="获取物理路径"><a href="#获取物理路径" class="headerlink" title="获取物理路径"></a>获取物理路径</h3><p>探针文件</p>
+<h3 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h3><p>注册登录框</p>
+<p>文件下载</p>
+<h3 id="社工库"><a href="#社工库" class="headerlink" title="社工库"></a>社工库</h3><p>findmima.com</p>
+<h3 id="漏洞扫描"><a href="#漏洞扫描" class="headerlink" title="漏洞扫描"></a>漏洞扫描</h3><p>awvs</p>
+<p>xray</p>
+<p>github开源工具集合：<a target="_blank" rel="noopener" href="https://github.com/We5ter/Scanners-Box/">https://github.com/We5ter/Scanners-Box/</a></p>
 
   </div>
 </article>
@@ -234,7 +234,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">信息收集总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93"><span class="toc-number">2.</span> <span class="toc-text">具体</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#whois%E4%BF%A1%E6%81%AF"><span class="toc-number">2.0.1.</span> <span class="toc-text">whois信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.0.2.</span> <span class="toc-text">dns服务器查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-number">2.0.3.</span> <span class="toc-text">子域名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%9C%9F%E5%AE%9Eip"><span class="toc-number">2.0.4.</span> <span class="toc-text">目标真实ip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">2.0.5.</span> <span class="toc-text">反向地址解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%81%E7%AB%99c%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.0.6.</span> <span class="toc-text">旁站c段查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">2.0.7.</span> <span class="toc-text">服务指纹识别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1%E6%94%B6%E9%9B%86"><span class="toc-number">2.0.8.</span> <span class="toc-text">邮箱收集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-number">2.0.9.</span> <span class="toc-text">敏感目录文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="toc-number">2.0.10.</span> <span class="toc-text">端口信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#waf%E6%A3%80%E6%B5%8B"><span class="toc-number">2.0.11.</span> <span class="toc-text">waf检测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-number">2.0.12.</span> <span class="toc-text">后台管理地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84"><span class="toc-number">2.0.13.</span> <span class="toc-text">获取物理路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">2.0.14.</span> <span class="toc-text">需要注意的地方</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BE%E5%B7%A5%E5%BA%93"><span class="toc-number">2.0.15.</span> <span class="toc-text">社工库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">2.0.16.</span> <span class="toc-text">漏洞扫描</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">信息收集总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93"><span class="toc-number">2.</span> <span class="toc-text">具体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whois%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text">whois信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.</span> <span class="toc-text">dns服务器查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D"><span class="toc-number">5.</span> <span class="toc-text">子域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%9C%9F%E5%AE%9Eip"><span class="toc-number">6.</span> <span class="toc-text">目标真实ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">7.</span> <span class="toc-text">反向地址解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%81%E7%AB%99c%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">8.</span> <span class="toc-text">旁站c段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">服务指纹识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%AE%E7%AE%B1%E6%94%B6%E9%9B%86"><span class="toc-number">10.</span> <span class="toc-text">邮箱收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">敏感目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="toc-number">12.</span> <span class="toc-text">端口信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#waf%E6%A3%80%E6%B5%8B"><span class="toc-number">13.</span> <span class="toc-text">waf检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-number">14.</span> <span class="toc-text">后台管理地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84"><span class="toc-number">15.</span> <span class="toc-text">获取物理路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">16.</span> <span class="toc-text">需要注意的地方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E5%B7%A5%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">社工库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F"><span class="toc-number">18.</span> <span class="toc-text">漏洞扫描</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
