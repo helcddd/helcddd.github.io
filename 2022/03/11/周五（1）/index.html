@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="周五今天不想学习了，就这样吧。上午把客户给的目标渗透测试了一下，找了2个低危，没办法，我实在是太菜了，还要学习啊。下午，就开始写博客了。感觉想到什么就写什么吧。先说下昨天的贴吧节奏，还没有下去，最新消息时tes的晴天被处罚了，怎么说呢，现在这件事和他已经没啥关系了。有关系的是，李哥被一些黑子抓到了把柄，姑且算个把柄吧，应该算吧。毕竟有些人会这么说，faker即使拿了三冠，可是人品有问题。你问，什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="周五（1）">
+<meta property="og:url" content="https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="坂道之诗">
+<meta property="og:description" content="周五今天不想学习了，就这样吧。上午把客户给的目标渗透测试了一下，找了2个低危，没办法，我实在是太菜了，还要学习啊。下午，就开始写博客了。感觉想到什么就写什么吧。先说下昨天的贴吧节奏，还没有下去，最新消息时tes的晴天被处罚了，怎么说呢，现在这件事和他已经没啥关系了。有关系的是，李哥被一些黑子抓到了把柄，姑且算个把柄吧，应该算吧。毕竟有些人会这么说，faker即使拿了三冠，可是人品有问题。你问，什么">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-11T05:49:53.000Z">
+<meta property="article:modified_time" content="2022-03-11T06:15:38.326Z">
+<meta property="article:author" content="Helc">
+<meta property="article:tag" content="周五">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>周五（1）</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2022/03/10/%E5%91%A8%E5%9B%9B%EF%BC%881%EF%BC%89/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&text=周五（1）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&is_video=false&description=周五（1）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=周五（1）&body=Check out this article: https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&name=周五（1）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&t=周五（1）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%A8%E4%BA%94"><span class="toc-number">1.</span> <span class="toc-text">周五</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        周五（1）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Helc</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-11T05:49:53.000Z" itemprop="datePublished">2022-03-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%91%A8%E4%BA%94/" rel="tag">周五</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="周五"><a href="#周五" class="headerlink" title="周五"></a>周五</h3><p>今天不想学习了，就这样吧。<br>上午把客户给的目标渗透测试了一下，找了2个低危，没办法，我实在是太菜了，还要学习啊。<br>下午，就开始写博客了。<br>感觉想到什么就写什么吧。<br>先说下昨天的贴吧节奏，还没有下去，最新消息时tes的晴天被处罚了，怎么说呢，现在这件事和他已经没啥关系了。<br>有关系的是，李哥被一些黑子抓到了把柄，姑且算个把柄吧，应该算吧。<br>毕竟有些人会这么说，faker即使拿了三冠，可是人品有问题。<br>你问，什么问题。他会告诉你，双标和地图炮。<br>是的，这就是我李哥的唯一黑点了，以后黑子可以都拿这个黑了，然后这样他们就立于不败之地了吗？<br>其实不然，让我来仔细分析一波他们的言论。<br>双标？指的是李哥说没见过韩国选手这样过，只见过中国的职业选手。<br>这句话好像找不出什么毛病，我想了很久，是符合双标的。<br>最后，我知道了，这句话的问题所在，在于没见过韩国选手这样过，那是怎样过呢，那个晴天到底做了什么呢？<br>据知，游戏态度消极，队友在认真的想赢，而他一直在送。这种态度，我想谁遇到了都会破防吧。<br>就比如我，在大乱斗中，遇到掉线的，都会忍不住说几句。<br>可是我也曾经掉线过，我想我那时可能也被队友说了吧。<br>是吧，打游戏态度消极，影响了队友，被队友说是一件很正常的事情，所以我事后想晴天的行为能不能理解，李哥的行为能不能够理解。<br>我想，我都理解的。<br>晴天是那局心里出问题了，李哥是那句游戏被晴天影响到了心情。<br>我承认李哥说的话不妥。<br>但是有些黑子却妄想把这件事当作他的黑点，拿来骂人，那简直是可笑。<br>还有人说faker应该出来道歉，我想说的是，道你妹呢！<br>给谁道，可以给那些无意间被伤害到的优秀的中国职业选手道歉，那难道要给晴天或者那些黑子道歉吗？<br>那些黑子的言论简直恶毒，什么恶心人的话都能发出来，就是我现在技术不到家，要不然真想去扒一个小丑出来看看。<br>这些人到底有没有ma，好吧，我要文明一点，狗咬我，我不能去咬狗啊，但我会用棍子教训狗。<br>这次，李哥的行为其实不符合他一直的性格，却是我喜欢的性格。<br>我曾经多么的希望他能愤怒一点，在宫斗期间，在别人说他的时候，直接站出来，硬气点，直接刚所有人。<br>可惜，他一直在克制，一直在有修养地克制自己地行为。<br>因为他知道，他的一句话对有些人来说多么地沉重。<br>现在，晴天就遭难了，他也是可怜。<br>我李哥只是当时生气了，但后面又排到了一局，在那局中，李哥好好帮晴天抓，成功纠正了晴天的毛病，也顺利地赢得了游戏。<br>这才是李哥的表率啊，真的太大度了。<br>他真的太温柔了。<br>但一些黑子不辨是非，妄想利用某些国人的敏感的心里，来对faker造成点影响，那简直是痴心妄想。<br>李哥是不会受到这些影响的。<br>有些人也别总用什么，你是中国人，你要支持中国选手。<br>这句话无可厚非，但是我的观点是，如果没有任何其他因素的时候，我当然是支持中国选手。<br>为什么呢，因为他们和我一样都是中国人。中国人帮中国人，无可厚非，也不用感谢什么。<br>但是如果，这个中国人给我们中国丢脸了，那么我再去支持他，那岂不是古人所说的愚蒙了吗。<br>人与人的区别比人与猪的区别都大，这句话诚不欺我。<br>好吧，周五就这样吧，再摸会鱼，就下班了，开始周末的生活了。<br>下午四点，t1比赛，15连胜，给爷冲，让那些黑子直接消失。<br>不看现在是什么环境吗，我们科粉顺风无敌。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/study/">学习</a></li>
+         
+          <li><a href="/play/">娱乐</a></li>
+         
+          <li><a href="/any/">其他</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%A8%E4%BA%94"><span class="toc-number">1.</span> <span class="toc-text">周五</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&text=周五（1）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&is_video=false&description=周五（1）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=周五（1）&body=Check out this article: https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&title=周五（1）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&name=周五（1）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/03/11/%E5%91%A8%E4%BA%94%EF%BC%881%EF%BC%89/&t=周五（1）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    Helc
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
