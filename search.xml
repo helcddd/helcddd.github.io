@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>使用vs code写c和python的环境搭建过程 and 其他有趣的插件</title>
+      <link href="/2022/05/09/%E4%BD%BF%E7%94%A8vs-code%E5%86%99c%E5%92%8Cpython%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B-and-%E5%85%B6%E4%BB%96%E6%9C%89%E8%B6%A3%E7%9A%84%E6%8F%92%E4%BB%B6/"/>
+      <url>/2022/05/09/%E4%BD%BF%E7%94%A8vs-code%E5%86%99c%E5%92%8Cpython%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B-and-%E5%85%B6%E4%BB%96%E6%9C%89%E8%B6%A3%E7%9A%84%E6%8F%92%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="vs-code环境搭建"><a href="#vs-code环境搭建" class="headerlink" title="vs code环境搭建"></a>vs code环境搭建</h3><p>前言：<br>我是两个环境，c和python的，因为是经常要使用的。c是为了学免杀和逆向，python已经和安全不可分离了，感觉python是安全大佬们用的最多的语言了，经常有那些好用的脚本和工具都是用python写到，那么我们有什么道理不去学会使用python呢，所有得搞个环境。以前是有pycharm当编译器的，也是很方便的，今天试了下vscode，感觉也还可以，主要是页面简洁，直接爱上了。还有很多有趣的插件，这是后话了。<br>所有说，搞些小的项目，譬如看看脚本等等，就用vscode，是真的方便，而且它是个集合，我感觉，还可以干很多有趣的事，就好比现在，我的博客也是在它上面写的，也很方便，和webstorm相比，看起来更好看了。<br>嗯，那我就要不得不使用它的理由了。<br>后面不打算总结了，就现在说下吧。很简单的道理，无论搞啥子项目，都可以用vscode试试，不行了再换，它就是个原生之初，以后作为我的主力编译器了，以及博客编辑器，还有文本编辑器（这个待定，不如直接notepad++）。。。等等。</p><p>具体：<br>开始具体的步骤吧。<br>1、下载它，安装它<br>我是在52破解上弄到手的，先谢谢那位好人了。帖子的链接贴下面，它是个压缩包，便捷式的，直接开箱即用。<a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1577047&amp;highlight=vs+code">https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1577047&amp;highlight=vs%2Bcode</a><br>当然你也可以去官方下载，直接Google搜索“vs code”，应该就行了，我没试过，应该可以，据我所致，它是个免费的，没有什么专业版和社区版之分，嗯，不对，我去看看，yes，是真的没有，完美。</p><p>2、安装c和c++环境<br>这个，我也贴个链接。里面有教程，肯定比我写得好，我就是看这个教程搞好的。<br><a href="http://c.biancheng.net/view/8114.html">http://c.biancheng.net/view/8114.html</a><br>其中需要注意的是，一下忘了，搞笑呢。我记得我在途中被一个地方卡了很久，不知道是什么了。嗯，想起来了，测试的时候，代码一定要写对，不然看错误提示又看不懂，以为编译环境有问题，其实只是代码报错了，害得我找是不是gcc的问题，就这事，卡了好久。当然，可能聪明的你，不会有这个小问题的。<br>如果一切顺利，会在下面终端打出正确的答案，说明就是c的环境搭建成功了。</p><p>3、安装python环境<br>这个，简单了。直接在vscode的插件库，搜索“python”，安装那个安装次数最多的，评分最高的，就是官方的python环境，安装就好了。<br>然后写个正确的python代码，测试下，就行了。需要注意的是，本机里得有python的环境，并且配置好环境变量。<br>再说下，这个就好比，c环境需要gcc，python环境当然得需要python了啊。<br>嗯，简单明了。</p><p>4、其他好玩的插件<br>还是给个链接。<a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1577047&amp;highlight=vs+code">https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1577047&amp;highlight=vs%2Bcode</a><br>其实就是上面那个下载vscode的链接，里面推荐了一些好玩的插件，可以按需自取。<br>我就说一下我感兴趣的插件了，就是那个z-reader，真的还用。<br>安装方法，简单之际，插件库，搜一下，安装就可以了。<br>注意的在于，它有两个在线搜索的源，一个起点，一个笔趣阁的，mt，起点的源有毛用，vip章节又看不了，优选是选择笔趣阁的源，但是却一直搜索不到，怀疑是超时，也没有任何提示。<br>烦了我好久，后面还是Google了下，有位网友和我遇到了同样的问题，然后有热心的大哥给他解答了。要退回到1.0.8的版本去，就ok了。<br>不知道是什么原因，可能是作者的小失误吧。<br>嗯，没事，解决了就好。<br>以后终于可以在pc上看小说了，可能你会问，难道没有其他软件可以看小说吗，pc上。<br>我的回答是，有是有，但都不好，看的我眼睛疼，vscode上面看的就很舒服，有种神游的感觉。<br>所有，如果你也喜欢在pc上看小说，不妨试一试vscode和这个z-reader插件吧。<br>你值得拥有！</p><p>好像没了，就到这儿了，总结我也不写了。<br>也不是为了给别人看的，因为写的有点自我，一般人可能看不懂。<br>没事，反正我这个博客站点，应该也没几个人知道，更没几人会看了。<br>全是为了自己的学习记录，有点觉得可以写下来的东西，那我就会记录下来，一种趣味罢了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习小贴士 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vs-code </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>周一（10）</title>
       <link href="/2022/05/09/%E5%91%A8%E4%B8%80%EF%BC%8810%EF%BC%89/"/>
       <url>/2022/05/09/%E5%91%A8%E4%B8%80%EF%BC%8810%EF%BC%89/</url>
