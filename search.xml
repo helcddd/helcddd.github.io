@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>kali安装masscan以及oneforall</title>
+      <link href="/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/"/>
+      <url>/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/</url>
+      
+        <content type="html"><![CDATA[<h3 id="kali安装github上的工具"><a href="#kali安装github上的工具" class="headerlink" title="kali安装github上的工具"></a>kali安装github上的工具</h3><p>前言：<br>安装github上面的两个工具，分别是masscan和oneforall。<br>其实我不怎么用，但是有人推荐了，我也去试了下，是挺好用的。<br>正好，我最近重新搞了下kali，要重新整理工具，也重新梳理下思路。</p><p>oneforall：OneForAll是一款功能强大的子域收集工具<br>masscan：海量 IP 端口扫描器，和nmap类似。</p><p>子域名<br>端口扫描</p><p>1.安装oneforall：<br>再次说下，是在kali上安装。<br>首先，去到它的项目地址处：<a href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a><br>只是为了看看它的作用，也防止待会忘了命令。</p><p>来到kali的命令终端，cd到桌面，输入：<br>git clone <a href="https://gitee.com/shmilylty/OneForAll.git">https://gitee.com/shmilylty/OneForAll.git</a><br>从gitee处爬取项目，原因是kali里没挂代理，我这网不行，从github上总是超时。</p><p>然后就是输入一些很简单的命令：<br>cd OneForAll</p><p>别忘了安装python3和pip3，如果安装了可以跳过这儿，没有的话。<br>输入以下命令：<br>直接输入python3，会提示你如何安装的。<br>pip3的话，<br>apt-get install python3-pip</p><p>ok了。</p><p>现在是位于oneforall的目录下，安装它的依赖。<br>pip3 install -r requirements.txt</p><p>没有报错的话，这样就好了，就可以测试下是否能成功运行了，可以用个域名测试下。</p><p>python3 oneforall.py –target xx.com run</p><p>然后，结束后，结果会放在项目目录下的results下，是个csv文件。<br>如果kali里安装了wps的话，那就更方便了。<br>直接：<br>open .&#x2F;results&#x2F;xx.com.csv<br>就可以打开了。</p><p>至此，oneforall安装完成！</p><p>2.安装masscan<br>还是来到它的github项目地址处：<a href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a><br>可以翻译下页面。</p><p>同样在kali终端处，回到桌面。<br>输入：<br>apt-get –assume-yes install git make gcc<br>安装gcc，我的话提示我安装好了，没安装gcc的话就让它自己跑。</p><p>git clone <a href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a><br>然后就出现问题了。可能你也会遇到，一直超时。<br>没办法，最后我是在本机下好了后，开了python的http服务，再在kali上访问这个http，下载下来的。<br>其实也很简单。<br>本机有python3的话，就是cmd输入：<br>python -m http.server<br>会在本机的8000端口开http服务。<br>注意要到那个masscan的目录处进入cmd，后，输入。</p><p>kali下好后。<br>就可以继续了。<br>cd masscan<br>make<br>等待它编译完成。</p><p>如果一切顺利的话，此时直接在任意位置，都可以输入:<br>masscan<br>会发现能返回它的帮助信息，就说明安装成功了。</p><p>此时，可以测试下它。<br>masscan ip -p 1-8000</p><p>就能看到一些端口开放情况了。<br>至此，masscan安装成功！</p><p>3.总结<br>结束了，成功在kali上安装了oneforall和masscan。<br>注意一点，以后使用这两个工具，masscan可以直接在任意终端位置使用。<br>而oneforall必须得到它的目录下去使用。</p><p>总体来说，写的比较俗，我是看懂了，你呢？<br>没懂？嗯，那就自己琢磨会吧，其实不如看官方写的步骤。<br>我只是个小小的搬运工，加了点自己的理解，罢了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习小贴士 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> kali </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>周五（10）</title>
       <link href="/2022/05/13/%E5%91%A8%E4%BA%94%EF%BC%8810%EF%BC%89/"/>
       <url>/2022/05/13/%E5%91%A8%E4%BA%94%EF%BC%8810%EF%BC%89/</url>

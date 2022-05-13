@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="kali安装github上的工具前言：安装github上面的两个工具，分别是masscan和oneforall。其实我不怎么用，但是有人推荐了，我也去试了下，是挺好用的。正好，我最近重新搞了下kali，要重新整理工具，也重新梳理下思路。 oneforall：OneForAll是一款功能强大的子域收集工具masscan：海量 IP 端口扫描器，和nmap类似。 子域名端口扫描 1.安装onefora">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kali安装masscan以及oneforall">
+<meta property="og:url" content="https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/index.html">
+<meta property="og:site_name" content="坂道之诗">
+<meta property="og:description" content="kali安装github上的工具前言：安装github上面的两个工具，分别是masscan和oneforall。其实我不怎么用，但是有人推荐了，我也去试了下，是挺好用的。正好，我最近重新搞了下kali，要重新整理工具，也重新梳理下思路。 oneforall：OneForAll是一款功能强大的子域收集工具masscan：海量 IP 端口扫描器，和nmap类似。 子域名端口扫描 1.安装onefora">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-13T06:02:32.000Z">
+<meta property="article:modified_time" content="2022-05-13T06:32:05.480Z">
+<meta property="article:author" content="Helc">
+<meta property="article:tag" content="kali">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="https://s4.ax1x.com/2022/03/03/btC8Ej.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>kali安装masscan以及oneforall</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2022/05/13/%E5%91%A8%E4%BA%94%EF%BC%8810%EF%BC%89/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&text=kali安装masscan以及oneforall"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&is_video=false&description=kali安装masscan以及oneforall"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=kali安装masscan以及oneforall&body=Check out this article: https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&name=kali安装masscan以及oneforall&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&t=kali安装masscan以及oneforall"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85github%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">kali安装github上的工具</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        kali安装masscan以及oneforall
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Helc</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-05-13T06:02:32.000Z" itemprop="datePublished">2022-05-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%B4%B4%E5%A3%AB/">学习小贴士</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/kali/" rel="tag">kali</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="kali安装github上的工具"><a href="#kali安装github上的工具" class="headerlink" title="kali安装github上的工具"></a>kali安装github上的工具</h3><p>前言：<br>安装github上面的两个工具，分别是masscan和oneforall。<br>其实我不怎么用，但是有人推荐了，我也去试了下，是挺好用的。<br>正好，我最近重新搞了下kali，要重新整理工具，也重新梳理下思路。</p>
+<p>oneforall：OneForAll是一款功能强大的子域收集工具<br>masscan：海量 IP 端口扫描器，和nmap类似。</p>
+<p>子域名<br>端口扫描</p>
+<p>1.安装oneforall：<br>再次说下，是在kali上安装。<br>首先，去到它的项目地址处：<a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a><br>只是为了看看它的作用，也防止待会忘了命令。</p>
+<p>来到kali的命令终端，cd到桌面，输入：<br>git clone <a target="_blank" rel="noopener" href="https://gitee.com/shmilylty/OneForAll.git">https://gitee.com/shmilylty/OneForAll.git</a><br>从gitee处爬取项目，原因是kali里没挂代理，我这网不行，从github上总是超时。</p>
+<p>然后就是输入一些很简单的命令：<br>cd OneForAll</p>
+<p>别忘了安装python3和pip3，如果安装了可以跳过这儿，没有的话。<br>输入以下命令：<br>直接输入python3，会提示你如何安装的。<br>pip3的话，<br>apt-get install python3-pip</p>
+<p>ok了。</p>
+<p>现在是位于oneforall的目录下，安装它的依赖。<br>pip3 install -r requirements.txt</p>
+<p>没有报错的话，这样就好了，就可以测试下是否能成功运行了，可以用个域名测试下。</p>
+<p>python3 oneforall.py –target xx.com run</p>
+<p>然后，结束后，结果会放在项目目录下的results下，是个csv文件。<br>如果kali里安装了wps的话，那就更方便了。<br>直接：<br>open .&#x2F;results&#x2F;xx.com.csv<br>就可以打开了。</p>
+<p>至此，oneforall安装完成！</p>
+<p>2.安装masscan<br>还是来到它的github项目地址处：<a target="_blank" rel="noopener" href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a><br>可以翻译下页面。</p>
+<p>同样在kali终端处，回到桌面。<br>输入：<br>apt-get –assume-yes install git make gcc<br>安装gcc，我的话提示我安装好了，没安装gcc的话就让它自己跑。</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/robertdavidgraham/masscan">https://github.com/robertdavidgraham/masscan</a><br>然后就出现问题了。可能你也会遇到，一直超时。<br>没办法，最后我是在本机下好了后，开了python的http服务，再在kali上访问这个http，下载下来的。<br>其实也很简单。<br>本机有python3的话，就是cmd输入：<br>python -m http.server<br>会在本机的8000端口开http服务。<br>注意要到那个masscan的目录处进入cmd，后，输入。</p>
+<p>kali下好后。<br>就可以继续了。<br>cd masscan<br>make<br>等待它编译完成。</p>
+<p>如果一切顺利的话，此时直接在任意位置，都可以输入:<br>masscan<br>会发现能返回它的帮助信息，就说明安装成功了。</p>
+<p>此时，可以测试下它。<br>masscan ip -p 1-8000</p>
+<p>就能看到一些端口开放情况了。<br>至此，masscan安装成功！</p>
+<p>3.总结<br>结束了，成功在kali上安装了oneforall和masscan。<br>注意一点，以后使用这两个工具，masscan可以直接在任意终端位置使用。<br>而oneforall必须得到它的目录下去使用。</p>
+<p>总体来说，写的比较俗，我是看懂了，你呢？<br>没懂？嗯，那就自己琢磨会吧，其实不如看官方写的步骤。<br>我只是个小小的搬运工，加了点自己的理解，罢了。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+         
+          <li><a href="/study/">学习</a></li>
+         
+          <li><a href="/play/">娱乐</a></li>
+         
+          <li><a href="/any/">其他</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#kali%E5%AE%89%E8%A3%85github%E4%B8%8A%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">kali安装github上的工具</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&text=kali安装masscan以及oneforall"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&is_video=false&description=kali安装masscan以及oneforall"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=kali安装masscan以及oneforall&body=Check out this article: https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&title=kali安装masscan以及oneforall"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&name=kali安装masscan以及oneforall&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://helcddd.github.io/2022/05/13/kali%E5%AE%89%E8%A3%85masscan%E4%BB%A5%E5%8F%8Aoneforall/&t=kali安装masscan以及oneforall"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022
+    Helc
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/study/">学习</a></li><!--
+     --><!--
+       --><li><a href="/play/">娱乐</a></li><!--
+     --><!--
+       --><li><a href="/any/">其他</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
